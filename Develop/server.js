@@ -1,6 +1,6 @@
 const express = require('express');
-////https://nodejs.org/api/modules.html#modules_require_id
 const noteData = require('./db/db.json');
+const path = require('path');
 
 const PORT = 3001;
 
@@ -15,6 +15,10 @@ app.get('/api/notes', (req, res) => res.json(noteData));
 // GET Route for homepage
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 
