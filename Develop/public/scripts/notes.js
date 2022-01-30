@@ -21,6 +21,9 @@ const getNotes = () =>
             console.error('Error: ', error);
         });
 
+//when the page loads, get the notes.
+getNotes().then((data) => data.forEach((note) => createNote(note)));
+
 //Post notes to the page
 const postNote = (note) => {
     fetch('/api/notes', {
