@@ -21,6 +21,10 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+app.post('/api/notes', (req, res) => {
+    const {title,body} = req.body;
+    
+})
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)

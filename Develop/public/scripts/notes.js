@@ -1,7 +1,8 @@
 const notesEl = document.getElementById('notes');
 const noteTitle = document.getElementById('noteTitle');
 const noteBody = document.getElementById('noteBody');
-const saveButton = document.getElementById('')
+const saveButton = document.getElementById('saveBtn');
+const addButton = document.getElementById('addBtn');
 
 const createNote = (note) => {
     //create list item for note
@@ -36,5 +37,23 @@ const postNote = (note) => {
         })
 }
 
+saveButton.addEventListener('click', () => {
+// Create new Note item in list
+// Post note to server
+// Empty out note
 
+const titleContent = noteTitle.value;
+const bodyContent = noteBody.value;
+
+const NewNote = {
+    title: titleContent,
+    body: bodyContent,
+}
+createNote(newNote); // appends new note to page
+postNote(newNote); // Sends note to server
+});
+
+addButton.addEventListener('click', () => {
+// Reset input fields
+});
 
