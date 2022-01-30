@@ -1,6 +1,14 @@
 const notesEl = document.getElementById('notes');
 const noteTitle = document.getElementById('noteTitle');
 const noteBody = document.getElementById('noteBody');
+const saveButton = document.getElementById('')
+
+const createNote = (note) => {
+    //create list item for note
+    const newNote = document.createElement('li');
+    newNote.innerHTML = `${note.title}`;
+    notesEl.appendChild(newNote);
+}
 
 //Get list of notes
 const getNotes = () =>
@@ -21,6 +29,9 @@ const postNote = (note) => {
     })
         .then((response) => response.json())
         .then((data) => {
-            //add to list of notes
+            createNote(data);
         })
 }
+
+
+
