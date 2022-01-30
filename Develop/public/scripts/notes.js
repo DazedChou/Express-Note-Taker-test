@@ -38,22 +38,24 @@ const postNote = (note) => {
 }
 
 saveButton.addEventListener('click', () => {
-// Create new Note item in list
-// Post note to server
-// Empty out note
+    // Create new Note item in list
+    // Post note to server
+    // Empty out note
 
-const titleContent = noteTitle.value;
-const bodyContent = noteBody.value;
+    const titleContent = noteTitle.value;
+    const bodyContent = noteBody.value;
 
-const NewNote = {
-    title: titleContent,
-    body: bodyContent,
-}
-createNote(newNote); // appends new note to page
-postNote(newNote); // Sends note to server
+    const newNote = {
+        title: titleContent,
+        body: bodyContent,
+    }
+    createNote(newNote); // appends new note to page
+    postNote(newNote); // Sends note to server
 });
 
 addButton.addEventListener('click', () => {
-// Reset input fields
+    // Reset input fields
+    noteTitle.innerHTML = "";
+    noteBody.innerHTML = "";
 });
 

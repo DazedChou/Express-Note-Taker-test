@@ -1,6 +1,7 @@
 const express = require('express');
 const noteData = require('./db/db.json');
 const path = require('path');
+const { readFromFile, readAndAppend } = require('./helpers/fsUtils')
 
 const PORT = 3001;
 
@@ -22,8 +23,14 @@ app.get('/notes', (req, res) =>
 );
 
 app.post('/api/notes', (req, res) => {
-    const {title,body} = req.body;
-    
+  const { title, body } = req.body;
+  if (req.Body) {
+    const newNote = {
+      title,
+      body,
+    };
+    readAndAppend(newNote, './db/db.json')
+  }
 })
 
 app.listen(PORT, () =>
